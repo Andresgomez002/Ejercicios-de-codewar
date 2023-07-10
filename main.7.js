@@ -2,7 +2,7 @@
 
 // Nota : siempre recibirá una matriz válida que contiene una variedad aleatoria de letras de dirección (solo 'n', 's', 'e' o 'w'). Nunca le dará una matriz vacía (¡eso no es caminar, eso es quedarse quieto!).
 function isValidWalk(walk) {
-    if (walk.length > 10) {
+    if (walk.length !== 10) {
         return false;
       }
     
