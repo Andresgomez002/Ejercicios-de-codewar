@@ -10,18 +10,31 @@
 // Ejemplos de caras sonrientes válidas: :) :D ;-D :~)
 // Caras sonrientes no válidas: ;( :> :} :]
 function countSmileys(arr) {
-    let contador = 0;
-    for(let  i = 0;  i < arr.length; i++){
-        
-      if(arr[i]===':)' || arr[i] === ':D' || arr[i] === ';-D' || arr[i] === ':~)'|| arr[i] === ';~D'){
-       
-        contador++;
-      }else if(arr[i] === ''){
-        contador = 0;
+    let count = 0;
+    const validEyes = [':', ';'];
+    const validNoses = ['-', '~'];
+    const validMouths = [')', 'D'];
+  
+    for (let i = 0; i < arr.length; i++) {
+      const face = arr[i];
+      if (face.length === 2) {
+        if (validEyes.includes(face[0]) && validMouths.includes(face[1])) {
+          count++;
+        }
+      } else if (face.length === 3) {
+        if (
+          validEyes.includes(face[0]) &&
+          validNoses.includes(face[1]) &&
+          validMouths.includes(face[2])
+        ) {
+          count++;
+        }
       }
     }
-    return contador;
+  
+    return count;
   }
+  
   console.log(countSmileys([]));
   console.log(countSmileys([':D',':~)',';~D',':)']));
   console.log(countSmileys([':)',':(',':D',':O',':;']));
